@@ -26,14 +26,14 @@ title = '使用Hugo搭建博客'
 
 新建一个hugo文件夹并进入。
 
-```bash
+```powershell
 hugo new site MyHugoBlog
 cd .\MyHugoBlog\
 ```
 
 导入一个新的主题并设置应用该主题。
 
-```bash
+```powershell
 git init
 git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git themes/ananke
 echo "theme = 'ananke'" >> hugo.toml
@@ -44,13 +44,13 @@ hugo server
 
 使用新建一个页面。
 
-```bash
+```powershell
 hugo new content content/posts/my-first-post.md
 ```
 
 使用编辑器打开文件编辑内容，文件会有如下的默认内容。
 
-```bash
+```markdown
 +++
 title = 'My First Post'
 date = 2024-01-14T07:07:07+01:00
@@ -62,7 +62,7 @@ Hugo默认不会对`draft = true`​的内容进行发布，在内容完成后�
 
 在文件中添加内容用作测试，内容如下。
 
-```bash
+```markdown
 +++
 title = 'My First Post'
 date = 2024-01-14T07:07:07+01:00
@@ -78,7 +78,7 @@ Visit the [Hugo](https://gohugo.io) website!
 
 使用以下命令之一预览网站，包含草稿内容。
 
-```bash
+```powershell
 hugo server --buildDrafts
 hugo server -D
 ```
@@ -87,7 +87,7 @@ hugo server -D
 
 工程根目录的`hugo.toml`​为配置文件，其当前内容如下。
 
-```bash
+```toml
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
@@ -102,7 +102,7 @@ theme = 'ananke'
 
 使用以下命令发布。
 
-```bash
+```powershell
 hugo
 ```
 
@@ -114,7 +114,7 @@ hugo
 
 在Github新建一个仓库，使用以下命令将本地内容推送到Github。
 
-```
+```bash
 git remote add origin https://github.com/ZhBF/BaofengZhang.git
 git branch -M main
 git push -u origin main
@@ -124,7 +124,7 @@ git push -u origin main
 
 在hugo.toml中添加以下内容，配置图片缓存目录。
 
-```
+```toml
 [caches]
   [caches.images]
     dir = ':cacheDir/images'
@@ -132,14 +132,14 @@ git push -u origin main
 
 创建`.github/workflows/hugo.yaml`。
 
-```
+```powershell
 mkdir -p .github/workflows
 touch .github/workflows/hugo.yaml
 ```
 
 文件内容如下。
 
-```
+```yaml
 # Sample workflow for building and deploying a Hugo site to GitHub Pages
 name: Deploy Hugo site to Pages
 
