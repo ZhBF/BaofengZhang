@@ -1,0 +1,4 @@
+baseURL = 'https://example.org/'
+languageCode = 'zh-CN'
+title = '张保丰'
+theme = 'ananke'
