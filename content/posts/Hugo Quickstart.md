@@ -122,9 +122,17 @@ git branch -M main
 git push -u origin main
 ```
 
+找到Gihub仓库的`Settings > Pages > Build and deployment > Source`，设置为`Github Actions`。
 
 
 
+在hugo.toml中添加以下内容，配置图片缓存目录。
+
+```
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+```
 
 
 
