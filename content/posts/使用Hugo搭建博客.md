@@ -1,14 +1,12 @@
 +++
 
-date = '2025-07-30T18:09:06+08:00'
-draft = true
-title = 'Hugo 快速开始'
+title = '使用Hugo搭建博客'
 
 +++
 
 
 
-# Hugo 快速开始
+# 使用Hugo搭建博客
 
 # 安装
 
@@ -245,7 +243,9 @@ jobs:
         uses: actions/deploy-pages@v4
 ```
 
-将本地的所有修改推送到Github仓库。
+将本地的所有修改推送到Github仓库，找到Actions，等待状态从黄色转为绿色。
+
+然后点开对应的commit，deploy下会有对应的访问链接。
 
 
 
