@@ -1,0 +1,14 @@
+baseURL = 'https://example.org/'
+languageCode = 'zh-CN'
+title = '张保丰'
+# theme = 'ananke'
+theme = 'PaperMod'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true  # 全局允许原始 HTML

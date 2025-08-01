@@ -1,6 +1,6 @@
 ---
-title: "Git终端的中文乱码问题"
-date: "2025-08-01T22:04:50+08:00"
+title: "{{ replace .File.ContentBaseName `-` ` ` | title }}"
+date: "{{ .Date }}"
 tags: ["default"]
 author: "Baofeng Zhang"
 showToc: true
@@ -32,16 +32,4 @@ editPost:
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 ---
-
-# Git终端的中文乱码问题
-
-对于git终端不显示中文而是显示八进制字符编码的问题
-
-![image-20250730194646933](https://raw.githubusercontent.com/ZhBF/Images/main/images/image-20250730194646933.png)
-
-可以使用如下命令解决。
-
-```bash
-git config --global core.quotepath false
-```
 

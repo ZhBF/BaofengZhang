@@ -1,14 +1,41 @@
-+++
-
-title = '使用Hugo搭建博客'
-
-+++
-
-
+---
+title: "使用Hugo搭建博客"
+date: "2025-08-01T22:04:38+08:00"
+tags: ["default"]
+author: "Baofeng Zhang"
+showToc: true
+TocOpen: false
+draft: false
+hidemeta: false
+comments: false
+description: "Desc Text."
+canonicalURL: "https://canonical.url/to/page"
+disableHLJS: true # to disable highlightjs
+disableShare: false
+disableHLJS: false
+hideSummary: false
+searchHidden: true
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowWordCount: true
+ShowRssButtonInSectionTermList: true
+UseHugoToc: true
+cover:
+    image: "<image path/url>"
+    alt: "<alt text>" 
+    caption: "<text>" # display caption under cover
+    relative: false # when using page bundles set this to true
+    hidden: true # only hide on current single page
+editPost:
+    URL: "https://github.com/<path_to_repo>/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+---
 
 # 使用Hugo搭建博客
 
-# 安装
+## 安装
 
 使用命令安装hugo，此处以`chocolatey`​为例，运行命令`choco install hugo-extended`​。
 
@@ -20,7 +47,7 @@ title = '使用Hugo搭建博客'
 >
 > 不要使用 Command Prompt 或者 Windows PowerShell。使用 PowerShell 或者 Linux 终端，比如 WSL 和 Git Bash。（PowerShell 和Windows PowerShell 是不同的应用程序。）
 
-# 建站
+## 建站
 
 新建一个博客网站。
 
@@ -40,7 +67,7 @@ echo "theme = 'ananke'" >> hugo.toml
 hugo server
 ```
 
-# 内容
+## 内容
 
 使用新建一个页面。
 
@@ -83,7 +110,7 @@ hugo server --buildDrafts
 hugo server -D
 ```
 
-# 配置
+## 配置
 
 工程根目录的`hugo.toml`​为配置文件，其当前内容如下。
 
@@ -96,7 +123,7 @@ theme = 'ananke'
 
 根据情况修改配置。
 
-# 发布
+## 发布
 
 发布时，不包含任何的草稿、未来或过期内容（由文件头内容决定）。
 
@@ -106,7 +133,7 @@ theme = 'ananke'
 hugo
 ```
 
-# 托管
+## 托管
 
 ‍托管到 Github Pages。
 
@@ -246,26 +273,3 @@ jobs:
 将本地的所有修改推送到Github仓库，找到Actions，等待状态从黄色转为绿色。
 
 然后点开对应的commit，deploy下会有对应的访问链接。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
