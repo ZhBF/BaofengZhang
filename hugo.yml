@@ -24,6 +24,7 @@ params:
   DateFormat: "January 1, 2000" # 日期显示格式
   defaultTheme: auto            # auto, dark, light
   disableThemeToggle: false     # 允许深色浅色模式切换
+  search: true
 
   ShowReadingTime: true
   ShowShareButtons: true
@@ -110,7 +111,7 @@ params:
     shouldSort: true
     location: 0
     distance: 1000
-    threshold: 0.5
+    threshold: 0.4
     minMatchCharLength: 0
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]

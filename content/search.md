@@ -2,7 +2,7 @@
 title: "Search" 
 layout: "search" 
 url: "/search"
-description: "Search contenst in all blogs."
+description: "Search all blogs."
 summary: "search"
 placeholder: "search ..."
 ---
