@@ -1,7 +1,8 @@
 ---
 title: "使用Hugo搭建博客"
 date: "2025-08-01T22:04:38+08:00"
-tags: ["default"]
+categories: "Hugo"
+tags: ["Hugo", "Blog"]
 author: "Baofeng Zhang"
 showToc: true
 TocOpen: false

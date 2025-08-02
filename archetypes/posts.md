@@ -1,6 +1,7 @@
 ---
 title: "{{ replace .File.ContentBaseName `-` ` ` | title }}"
 date: "{{ .Date }}"
+categories: "default"
 tags: ["default"]
 author: "Baofeng Zhang"
 showToc: true

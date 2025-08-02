@@ -1,38 +1,35 @@
-baseURL: "https://examplesite.com/"
+baseURL: "https://zhbf.github.io/BaofengZhang/"
 title: Baofeng Zhang
-# paginate: 5
 theme: PaperMod
 
-enableRobotsTXT: true
-buildDrafts: false
-buildFuture: false
-buildExpired: false
+enableRobotsTXT: true   # 生成 robots.txt 文件，控制搜索引擎爬虫
+buildDrafts: false      # 构建标记为草稿的文章 (draft: true)
+buildFuture: false      # 构建未来日期的文章
+buildExpired: false     # 构建过期日期的文章
 
 pagination:
     pagerSize: 5
 
-minify:
+minify:                 # 压缩，优化站点性能
   disableXML: true
   minifyOutput: true
 
 params:
-  fancybox: true
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: ExampleSite
-  description: "ExampleSite description"
-  keywords: [Blog, Portfolio, PaperMod]
-  author: Me
-  # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
-  DateFormat: "January 2, 2006"
-  defaultTheme: auto # dark, light
-  disableThemeToggle: false
+  env: production                   # to enable google analytics, opengraph, twitter-cards and schema.
+  title: Baofeng Zhang              # 覆盖全局标题
+  description: "A personal blog."   # 站点描述（SEO 和社交媒体分享卡片）
+  keywords: [Blog, Computer Science, Artificial Intelligence]
+  author: Baofeng Zhang             # 可设置为数组支持多作者
+  images: ["<link or path of image for opengraph, twitter-cards>"]  # OpenGraph/Twitter 卡片使用的默认图片
+  DateFormat: "January 1, 2000" # 日期显示格式
+  defaultTheme: auto            # auto, dark, light
+  disableThemeToggle: false     # 允许深色浅色模式切换
 
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
@@ -47,15 +44,15 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    favicon: "/images/ICON_BLOG.ico"
+    favicon16x16: "/images/ICON_BLOG_16x16.ico"
+    favicon32x32: "/images/ICON_BLOG_32x32.ico"
+    apple_touch_icon: "/images/ICON_BLOG.ico"
+    safari_pinned_tab: "/images/ICON_BLOG.ico"
 
-  label:
+  label:                # 导航栏标签设置
     text: "Home"
-    icon: /apple-touch-icon.png
+    icon: "/images/ICON_BLOG.ico"
     iconHeight: 35
 
   # profile-mode
@@ -76,7 +73,7 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    Content: "The best time to plant a tree was 20 years ago. The second best time is now."
 
   socialIcons:
     - name: x
@@ -84,7 +81,7 @@ params:
     - name: stackoverflow
       url: "https://stackoverflow.com"
     - name: github
-      url: "https://github.com/"
+      url: "https://github.com/ZhBF"
 
   analytics:
     google:
@@ -100,7 +97,7 @@ params:
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/<path_to_repo>/content"
+    URL: "https://github.com/ZhBF/BaofengZhang/content"
     Text: "Suggest Changes" # edit text
     appendFilePath: true # to append file path to Edit link
 
@@ -108,15 +105,28 @@ params:
   # https://fusejs.io/api/options.html
   fuseOpts:
     isCaseSensitive: false
+    includeMatches: true
+    findAllMatches: true
     shouldSort: true
     location: 0
     distance: 1000
-    threshold: 0.4
+    threshold: 0.5
     minMatchCharLength: 0
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
+
 menu:
   main:
+    - identifier: search
+      name: search
+      url: /search/
+      weight: 5
     - identifier: categories
       name: categories
       url: /categories/
@@ -125,9 +135,9 @@ menu:
       name: tags
       url: /tags/
       weight: 20
-    - identifier: example
-      name: example.org
-      url: https://example.org
+    - identifier: contact
+      name: contact
+      url: mailto:zhangbaofeng13@gmail.com
       weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true

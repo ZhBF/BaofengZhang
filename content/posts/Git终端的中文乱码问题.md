@@ -1,7 +1,8 @@
 ---
 title: "Git终端的中文乱码问题"
 date: "2025-08-01T22:04:50+08:00"
-tags: ["default"]
+categories: "Git"
+tags: ["Git", "Git Bash"]
 author: "Baofeng Zhang"
 showToc: true
 TocOpen: false
