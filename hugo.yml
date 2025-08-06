@@ -24,7 +24,7 @@ params:
   DateFormat: "January 1, 2000" # 日期显示格式
   defaultTheme: auto            # auto, dark, light
   disableThemeToggle: false     # 允许深色浅色模式切换
-  search: true
+  math: true
 
   ShowReadingTime: true
   ShowShareButtons: true
@@ -146,6 +146,20 @@ markup:
   goldmark:
     renderer:
       unsafe: true
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+          - - $
+            - $
+        enable: true
   highlight:
     noClasses: false
     # anchorLineNos: true
