@@ -1,0 +1,134 @@
+---
+title: "多数表决算法 (Boyer Moore’s Voting Algorithm)"
+date: "2025-08-14T18:03:47+08:00"
+categories: "Coding Problem"
+tags: ["Coding Problem"]
+author: "Baofeng Zhang"
+showToc: true
+TocOpen: false
+draft: false
+hidemeta: false
+comments: false
+description: "在数组中查找多数元素。"
+canonicalURL: "https://canonical.url/to/page"
+disableHLJS: true # to disable highlightjs
+disableShare: false
+disableHLJS: false
+hideSummary: false
+searchHidden: false
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowWordCount: true
+ShowRssButtonInSectionTermList: true
+UseHugoToc: true
+cover:
+    image: "<image path/url>"
+    alt: "<alt text>" 
+    caption: "<text>" # display caption under cover
+    relative: false # when using page bundles set this to true
+    hidden: true # only hide on current single page
+editPost:
+    URL: "https://github.com/<path_to_repo>/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+---
+
+## 问题描述
+
+在一个由整数组成的无序数组中，查找该数组中出现次数超过总数量一半的元素。
+
+## 方法思路
+
+传统一点的方案为使用哈希表记录数组中每个元素的出现次数，时间复杂度`O(n)`，空间复杂度`O(n)`。
+
+将数组中出现次数超过总数量一半的元素称为“多数元素”。
+
+在每个数组中，多数元素至多存在1个。
+
+核心思想
+
+- 多数元素与所有非多数元素相互抵消，最终剩下的是多数元素。
+
+操作步骤
+
+- 初始化一个计数值为零，记录多数元素的抵消数量
+- 初始化一个变量用于记录单个元素，称作“当前多数元素”
+- 依次遍历无序数组中的每个元素
+    - 若计数值为零，令当前元素为当前多数元素
+    - 若当前元素为当前多数元素，计数值加一
+    - 若当前元素不为当前多数元素，计数值减一
+- 检查最终的当前多数元素是否是真正的多数元素
+
+该方法的时间复杂度`O(n)`，空间复杂度`O(1)`。
+
+## 代码实现
+
+```python
+def findMajority(arr):
+    ele = 0
+    cnt = 0
+    for a in arr:
+        if cnt == 0:
+            ele = a
+        if ele != a:
+            cnt -= 1
+        else:
+            cnt += 1
+
+    cnt = 0
+    for a in arr:
+        if a == ele:
+            cnt += 1
+    if cnt > len(arr) // 2:
+        return ele
+    else:
+        return None
+```
+
+## 扩展问题
+
+在一个由整数组成的无序数组中，查找该数组中出现次数超过总数量三分之一的元素。
+
+> 将数组中出现次数超过总数量三分之一的元素称为“多数元素”。
+>
+> 多数元素至多有2个，每个多数元素在与所有非多数元素进行计数抵消时一定会有剩余。
+
+```python
+def findMajority(arr):
+
+    ele1, ele2 = 0, 0
+    cnt1, cnt2 = 0, 0
+    for a in arr:
+        if ele1 == a:
+            cnt1 += 1
+        elif ele2 == a:
+            cnt2 += 1
+        elif cnt1 == 0:
+            ele1 = a
+            cnt1 += 1
+        elif cnt2 == 0:
+            ele2 = a
+            cnt2 += 1
+        else:
+            cnt1 -= 1
+            cnt2 -= 1
+
+    cnt1, cnt2 = 0, 0
+    for a in arr:
+        if ele1 == a:
+            cnt1 += 1
+        if ele2 == a:
+            cnt2 += 1
+
+    res = []
+    n = len(arr)
+    if cnt1 > n / 3:
+        res.append(ele1)
+    if cnt2 > n / 3 and ele1 != ele2:
+        res.append(ele2)
+
+    res.sort()
+    return res
+```
+

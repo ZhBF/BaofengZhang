@@ -74,7 +74,8 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: "The best time to plant a tree is 20 years ago. The second best time is now."
+    Content: "What I cannot create, I do not understand.  --Richard Phillips Feynman"
+    # Content: "The best time to plant a tree is 20 years ago. The second best time is now."
 
   socialIcons:
     - name: x

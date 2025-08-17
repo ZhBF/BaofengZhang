@@ -1,0 +1,219 @@
+---
+title: "Stock Buy and Sell Algorithm"
+date: "2025-08-17T19:44:29+08:00"
+categories: "Coding Problem"
+tags: ["Coding Problem"]
+author: "Baofeng Zhang"
+showToc: true
+TocOpen: false
+draft: false
+hidemeta: false
+comments: false
+description: "经典的股票买卖问题。"
+canonicalURL: "https://canonical.url/to/page"
+disableHLJS: true # to disable highlightjs
+disableShare: false
+disableHLJS: false
+hideSummary: false
+searchHidden: false
+ShowReadingTime: true
+ShowBreadCrumbs: true
+ShowPostNavLinks: true
+ShowWordCount: true
+ShowRssButtonInSectionTermList: true
+UseHugoToc: true
+cover:
+    image: "<image path/url>"
+    alt: "<alt text>" 
+    caption: "<text>" # display caption under cover
+    relative: false # when using page bundles set this to true
+    hidden: true # only hide on current single page
+editPost:
+    URL: "https://github.com/<path_to_repo>/content"
+    Text: "Suggest Changes" # edit text
+    appendFilePath: true # to append file path to Edit link
+---
+
+## 1 仅允许一次交易
+
+### 1.1 问题描述
+
+给定一个数组 `prices` ，它的第 `i` 个元素 `prices[i]` 表示一支给定股票第 `i` 天的价格。
+
+只能选择某一天买入这只股票，并选择在未来的某一个不同的日子卖出该股票。设计一个算法来计算所能获取的最大利润。
+
+返回可以从这笔交易中获取的最大利润。如果不能获取任何利润，返回 `0` 。
+
+### 1.2 方法思路
+
+比较每一天所能获得的最大收益取最大值，即为最大利润。
+
+在第`i`天卖出股票所能获得的最大收益等于第`i`天股票价格减去第`i`天之前的最小价格。
+
+第`i`天之前的最小价格可以通过简单动态规划得到。
+
+### 1.3 代码实现
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        ans = 0
+        mini = prices[0]
+        for price in prices:
+            ans = max(ans, price - mini)
+            mini = min(mini, price)
+        return ans
+```
+
+## 2 可自由多次交易
+
+### 2.1 问题描述
+
+给你一个整数数组 `prices` ，其中 `prices[i]` 表示某支股票第 `i` 天的价格。
+
+在每一天，你可以决定是否购买和/或出售股票。你在任何时候最多只能持有一股股票。你也可以先购买，然后在同一天出售。
+
+返回能获得的最大利润 。
+
+### 2.2 方法思路
+
+只在每次价格增长的前一天购入股票，并在价格增长后的当天立即卖出股票，即可获得最大利润。
+
+### 2.3 代码实现
+
+```python
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        ans = 0
+        for i in range(1, len(prices)):
+            if prices[i] > prices[i-1]:
+                ans += prices[i] - prices[i-1]
+        return ans
+```
+
+## 3 限制交易两笔
+
+### 3.1 问题描述
+
+给定一个数组，它的第 `i` 个元素是一支给定的股票在第 `i` 天的价格。
+
+设计一个算法来计算你所能获取的最大利润。你最多可以完成两笔交易。
+
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+### 3.2 方法思路
+
+### 3.3 代码实现
+
+```python
+
+```
+
+## 4 限制交易`k`笔
+
+### 4.1 问题描述
+
+给你一个整数数组 `prices` 和一个整数 `k` ，其中 `prices[i]` 是某支给定的股票在第 `i` 天的价格。
+
+设计一个算法来计算你所能获取的最大利润。你最多可以完成 `k` 笔交易。也就是说，你最多可以买 `k` 次，卖 `k` 次。
+
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+### 4.2 方法思路
+
+### 4.3 代码实现
+
+```python
+
+```
+
+## 5 限制交易`k`笔且允许做空
+
+### 5.1 问题描述
+
+给你一个整数数组 `prices`，其中 `prices[i]` 是第 `i` 天股票的价格（美元），以及一个整数 `k`。
+
+你最多可以进行 `k` 笔交易，每笔交易可以是以下任一类型：
+
+- **普通交易**：在第 `i` 天买入，然后在之后的第 `j` 天卖出，其中 `i < j`。你的利润是 `prices[j] - prices[i]`。
+- **做空交易**：在第 `i` 天卖出，然后在之后的第 `j` 天买回，其中 `i < j`。你的利润是 `prices[i] - prices[j]`。
+
+**注意**：你必须在开始下一笔交易之前完成当前交易。此外，你不能在已经进行买入或卖出操作的同一天再次进行买入或卖出操作。
+
+通过进行 **最多** `k` 笔交易，返回你可以获得的最大总利润。
+
+### 5.2 方法思路
+
+### 5.3 代码实现
+
+```python
+
+```
+
+## 6 交易含手续费
+
+### 6.1 问题描述
+
+给定一个整数数组 `prices`，其中 `prices[i]`表示第 `i` 天的股票价格 ；整数 `fee` 代表了交易股票的手续费用。
+
+你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。
+
+返回获得利润的最大值。
+
+**注意：**这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。
+
+### 6.2 方法思路
+
+### 6.3 代码实现
+
+## 7 给定限制策略交易
+
+### 7.1 问题描述
+
+给你两个整数数组 `prices` 和 `strategy`，其中：
+
+- `prices[i]` 表示第 `i` 天某股票的价格。
+- `strategy[i]`表示第`i`天的交易策略，其中：
+    - `-1` 表示买入一单位股票。
+    - `0` 表示持有股票。
+    - `1` 表示卖出一单位股票。
+
+同时给你一个偶数整数 `k`，你可以对 `strategy` 进行最多一次修改。一次修改包括：
+
+- 选择 `strategy` 中恰好 `k` 个连续元素。
+- 将前 `k / 2` 个元素设为 `0`（持有）。
+- 将后 `k / 2` 个元素设为 `1`（卖出）。
+
+利润定义为所有天数中 `strategy[i] * prices[i]` 的总和 。
+
+返回你可以获得的最大可能利润。
+
+注意： 没有预算或股票持有数量的限制，因此所有买入和卖出操作均可行，无需考虑过去的操作。
+
+### 7.2 方法思路
+
+### 7.3 代码实现
+
+```python
+
+```
+
+## 8 含冷冻期交易
+
+### 8.1 问题描述
+
+给定一个整数数组`prices`，其中第 `prices[i]` 表示第 `*i*` 天的股票价格 。
+
+设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:
+
+- 卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。
+
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+### 8.2 方法思路
+
+### 8.3 代码实现
+
+```python
+
+```
