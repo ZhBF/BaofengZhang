@@ -1,4 +1,4 @@
-baseURL: "https://zhbf.github.io/BaofengZhang/"
+a: "https://zhbf.github.io/BaofengZhang/"
 title: Baofeng Zhang
 theme: PaperMod
 
@@ -126,19 +126,19 @@ outputs:
 menu:
   main:
     - identifier: search
-      name: search
+      name: Search
       url: /search/
       weight: 5
     - identifier: categories
-      name: categories
+      name: Categories
       url: /categories/
       weight: 10
     - identifier: tags
-      name: tags
+      name: Tags
       url: /tags/
       weight: 20
     - identifier: contact
-      name: contact
+      name: Contact
       url: mailto:zhangbaofeng13@gmail.com
       weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
