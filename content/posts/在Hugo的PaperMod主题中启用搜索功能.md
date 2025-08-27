@@ -2,7 +2,7 @@
 title: "在Hugo的PaperMod中搜索"
 date: "2025-08-02T11:27:16+08:00"
 categories: "Hugo"
-tags: ["Hugo", "PaperMod"]
+tags: ["Hugo"]
 author: "Baofeng Zhang"
 showToc: false
 TocOpen: false
