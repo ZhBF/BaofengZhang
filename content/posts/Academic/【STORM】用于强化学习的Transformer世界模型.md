@@ -1,7 +1,7 @@
 ---
 title: "【STORM】用于强化学习的Transformer世界模型"
 date: "2025-09-09T11:39:14+08:00"
-categories: "Academic Papers"
+categories: "Academic"
 tags: ["Academic"]
 author: "Baofeng Zhang"
 showToc: true
